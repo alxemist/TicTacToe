@@ -1,7 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 
-import Gintis
+import Pulti
+import Validuoti
 import Network.HTTP.Client
 import Network.HTTP.Types.Status (statusCode)
 import Network.HTTP.Types.Header
@@ -11,7 +12,7 @@ import qualified Data.ByteString.Char8 as B
 import Data.ByteString.Lazy.Char8 as C
 import Data.Maybe
 --import Data.ByteString.Lazy.pack as C
-urlSuper = "http://tictactoe.homedir.eu/game/antanas_test_13/player/1"
+urlSuper = "http://tictactoe.homedir.eu/game/n2/player/1"
 
 post :: String -> IO()
 post ""= do
@@ -37,7 +38,9 @@ post msg= do
   Prelude.putStrLn $ "The status code was atejo: " ++ (show $ statusCode $ responseStatus response)
   Prelude.putStrLn $ msg
   print $ responseBody response
-  get
+  if(validate ((Prelude.take ((Prelude.length msg) - 1) msg)++"1:"++[(intToDigit (div (Prelude.length(pirmasZingsnis msg)) 2))]++(fromJust (turn msg))) == False) 
+      then get
+      else Prelude.putStrLn $ "Zaidimo pabaiga "
 get :: IO()
 get = do
   manager <- newManager defaultManagerSettings
