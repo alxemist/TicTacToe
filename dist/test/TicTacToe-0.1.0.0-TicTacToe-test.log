@@ -2,8 +2,12 @@ Test suite TicTacToe-test: RUNNING...
 
 Validuoja
   Turetu grazinti True, nes x laimejo
+  Turetu grazinti False, nes dar niekas nelaimejo ir zaidimas nepasibaige
+  Patikrina, ar padaro ejima i koordinate 1,1
+  Turetu grazinti True, nes x laimejo
+  Turetu grazinti True, nes x laimejo ir zaidimas baigesi
 
-Finished in 0.0005 seconds
-1 example, 0 failures
+Finished in 0.0000 seconds
+5 examples, 0 failures
 Test suite TicTacToe-test: PASS
 Test suite logged to: dist\test\TicTacToe-0.1.0.0-TicTacToe-test.log
