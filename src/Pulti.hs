@@ -3,6 +3,7 @@ where
 import Data.Char
 import Data.List
 import Network.HTTP.Client
+import Atkodavimas
  
 
 message :: String
@@ -52,29 +53,3 @@ findMove moves
     | (filter(\(a,b,c)-> a=='1' && b=='2') moves)==[] = Just (digitToInt '1',digitToInt '2','x')
     | (filter(\(a,b,c)-> a=='2' && b=='1') moves)==[] = Just (digitToInt '2',digitToInt '1','x')
     | otherwise = Nothing
-
-pirmasZingsnis :: String -> [(Char,Char,Char)]
-pirmasZingsnis "" = error "no list"
-pirmasZingsnis ('d' :rest) = antrasZingsnis (take ((length rest) -1) rest)
-pirmasZingsnis _ = error "netinkamas tipas"
-
-antrasZingsnis :: String -> [(Char,Char,Char)]
-antrasZingsnis "" = []
-antrasZingsnis a = treciasZingsnis a []
-
-treciasZingsnis :: String -> [(Char,Char,Char)] -> [(Char,Char,Char)]
-treciasZingsnis a [] = 
-    let
-        v = head (drop 9 a)
-        x = head (drop 14 a)
-        y = head (drop 20  a)
-        rest = drop 23 a
-    in treciasZingsnis rest ((x,y,v) : [])
-treciasZingsnis ('1' :a) acc =
-    let
-        v = head (drop 8 a)
-        x = head (drop 13 a)
-        y = head (drop 19  a)
-        rest = drop 22 a
-    in treciasZingsnis rest ((x,y,v):acc)
-treciasZingsnis "" acc = acc

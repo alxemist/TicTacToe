@@ -3,6 +3,7 @@ module Main (main) where
 
 import Pulti
 import Validuoti
+import Atkodavimas
 import Network.HTTP.Client
 import Network.HTTP.Types.Status (statusCode)
 import Network.HTTP.Types.Header
@@ -11,12 +12,12 @@ import Data.Tuple.Select
 import qualified Data.ByteString.Char8 as B
 import Data.ByteString.Lazy.Char8 as C
 import Data.Maybe
---import Data.ByteString.Lazy.pack as C
-urlSuper = "http://tictactoe.homedir.eu/game/n2/player/1"
+
+urlSuper = "http://tictactoe.homedir.eu/game/n20/player/1"
 
 post :: String -> IO()
 post ""= do
-  Prelude.putStrLn $ "Test: " ++ (("d1:0")++(fromJust (turn "d")))
+  --Prelude.putStrLn $ "Test: " ++ (("d1:0")++(fromJust (turn "d")))
   manager <- newManager defaultManagerSettings
   initialRequest <- parseUrlThrow urlSuper
   let request = initialRequest { method = B.pack "POST",

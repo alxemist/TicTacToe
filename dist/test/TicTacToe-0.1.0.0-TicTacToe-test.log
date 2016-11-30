@@ -1,0 +1,9 @@
+Test suite TicTacToe-test: RUNNING...
+
+Validuoja
+  Turetu grazinti True, nes x laimejo
+
+Finished in 0.0005 seconds
+1 example, 0 failures
+Test suite TicTacToe-test: PASS
+Test suite logged to: dist\test\TicTacToe-0.1.0.0-TicTacToe-test.log
